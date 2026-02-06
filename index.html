@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My CV - Mon CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        /* Language Toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--white);
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            padding: 5px;
+            display: flex;
+            gap: 5px;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: var(--text-color);
+        }
+
+        .lang-btn.active {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .lang-btn:hover:not(.active) {
+            background: var(--light-bg);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .title {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 0.95em;
+        }
+
+        .contact-info a {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: opacity 0.3s;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--secondary-color);
+            font-weight: 600;
+        }
+
+        /* About Section */
+        .about-text {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Experience & Education */
+        .timeline-item {
+            margin-bottom: 30px;
+            padding-left: 30px;
+            border-left: 3px solid var(--secondary-color);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 3px var(--secondary-color);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary-color);
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .meta {
+            color: #777;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .timeline-item .company {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .timeline-item ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .timeline-item li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category h4 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: var(--light-bg);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: var(--text-color);
+            border: 1px solid #ddd;
+        }
+
+        /* Projects */
+        .project-card {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--secondary-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow);
+        }
+
+        .project-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .project-card .tech {
+            font-size: 0.9em;
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        /* Language-specific content */
+        [data-lang="en"] .fr-only,
+        [data-lang="fr"] .en-only {
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .section-title {
+                font-size: 1.5em;
+            }
+
+            .lang-toggle {
+                top: 10px;
+                right: 10px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media print {
+            .lang-toggle {
+                display: none;
+            }
+            
+            body {
+                background: white;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body data-lang="en">
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="setLanguage('fr')">FR</button>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>ZHAO Yinjie</h1>
+            <div class="title en-only">DevOps Engineer</div>
+            <div class="title fr-only">Ingénieur DevOps</div>
+            
+            <div class="contact-info">
+                <a href="mailto:john.doe@email.com">📧 yinjiepro@gmail.com</a>
+                <a href="tel:+33123456789">📱 +33 7 82 34 74 82</a>
+                <a href="https://github.com/johndoe" target="_blank">🔗 GitHub</a>
+                <a href="https://linkedin.com/in/johndoe" target="_blank">💼 LinkedIn</a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- About Section -->
+            <section class="section">
+                <h2 class="section-title en-only">About Me</h2>
+                <h2 class="section-title fr-only">À Propos</h2>
+                
+                <p class="about-text en-only">
+                    Passionate DevOps Engineer with 5+ years of experience building and maintaining scalable infrastructure. 
+                    Specialized in cloud platforms, mainframe, CI/CD pipelines, and automation. Strong problem-solver with 
+                    a keen eye for detail and a commitment to writing clean, maintainable code.
+                </p>
+                <p class="about-text fr-only">
+                    Ingénieur DevOps passionné avec plus de 5 ans d'expérience dans la création d'infrastructures évolutives. 
+                    Spécialisé dans les plateformes cloud, le mainframe, les pipelines CI/CD et l'automatisation.
+                    Résolveur de problèmes chevronné avec un souci du détail et un engagement pour un code propre et maintenable.
+                </p>
+            </section>
+
+            <!-- Experience Section -->
+            <section class="section">
+                <h2 class="section-title en-only">Experience</h2>
+                <h2 class="section-title fr-only">Expérience</h2>
+
+                <div class="timeline-item">
+                    <h3 class="en-only">Senior Python Developer | Senior DevOps Engineer</h3>
+                    <h3 class="fr-only">Développeur Python Senior | Ingénieur DevOps Senior</h3>
+                    <div class="meta">
+                        <span class="company">BPCE</span> • 
+                        <span class="en-only">Paris, France • May 2024 - Present</span>
+                        <span class="fr-only">Paris, France • Mai 2024 - Présent</span>
+                    </div>
+                    <ul class="en-only">
+                        <li><strong>Designed, implemented, and operated a secure CI/CD environment</strong>, fully compliant with <strong>BPCE-IT standards</strong> in a highly regulated and security-constrained context.</li>
+                        <li><strong>Developed a Python-based API server</strong> to automate <strong>user, permission, and dataset management on the mainframe</strong>, reducing <strong>over 400 incidents per year</strong> caused by manual operations.</li>
+                        <li>Built a web application for mainframe password reset, deployed and hosted on OpenShift, improving service availability and user autonomy.</li>
+                        <li>Implemented Ansible automation for mainframe certificate management, ensuring security compliance, traceability, and reduced manual intervention.</li>
+                        <li>Designed and implemented CI/CD pipelines using Jenkins, integrated with XL Deploy and XL Release to automate application deployments and release management.</li>
+                        <li>Contributed to architectural and tooling decisions with a strong focus on security, performance, scalability, and maintainability.</li>
+                        <li>Defined and executed integration and transition plans between legacy systems and newly automated solutions.</li>
+                        <li>Provided operational support and request handling via ServiceNow, including installation and provisioning of new environments and instances.</li>
+                        <li>Produced comprehensive technical documentation, including architecture diagrams, operational procedures, and security guidelines.</li>
+                        <li>Collaborated closely with security, operations, and infrastructure teams, and trained internal teams on the use of automation tools and CI/CD processes.</li>
+                    </ul>
+                    <ul class="fr-only">
+                        <li>Mise en œuvre et exploitation d'un environnement CI/CD sécurisé, conforme aux normes BPCE-IT, dans un contexte à fortes contraintes de sécurité (Linux & Mainframe).</li>
+                        <li>Conception et développement d'une API Python permettant l'automatisation de la gestion des utilisateurs, permissions et datasets mainframe, réduisant plus de 400 incidents/an liés aux erreurs de saisie manuelle.</li>
+                        <li>Développement d'une interface web de réinitialisation des mots de passe mainframe, déployée et hébergée sur OpenShift, améliorant l'autonomie des utilisateurs et la disponibilité du service.</li>
+                        <li>Automatisation de la gestion des certificats mainframe via Ansible, garantissant la conformité sécurité, la traçabilité et la réduction des opérations manuelles.</li>
+                        <li>Construction et déploiement de pipelines CI/CD Jenkins, intégrant XL Deploy et XL Release pour l'automatisation des déploiements applicatifs et la gestion des releases.</li>
+                        <li>Participation aux choix d'architecture et d'outillage, en tenant compte des exigences de sécurité, de performance et de maintenabilité.</li>
+                        <li>Définition et mise en œuvre de plans d'intégration et de transition entre les anciens systèmes et les nouvelles solutions automatisées.</li>
+                        <li>Support opérationnel et suivi des demandes via ServiceNow, incluant l'installation et la configuration de nouvelles instances.</li>
+                        <li>Rédaction de documentation technique détaillée (architecture, procédures, exploitation, sécurité).</li>
+                        <li>Collaboration avec les équipes sécurité et exploitation, et formation des équipes internes à l'utilisation des automatisations mises en place.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 class="en-only">Developer PHP | DevOps Engineer</h3>
+                    <h3 class="fr-only">Développeur PHP | Ingénieur DevOps</h3>
+                    <div class="meta">
+                        <span class="company">Tediber</span> • 
+                        <span class="en-only">Paris, France • April 2023 - April 2024</span>
+                        <span class="fr-only">Paris, France • Avril 2023 - Avril 2024</span>
+                    </div>
+                    <ul class="en-only">
+                        <li>Optimized <strong>PHP APIs based on Sylius (Symfony + Doctrine)</strong>, improving performance, response time, and database query efficiency.</li>
+                        <li>Optimized <strong>Docker images</strong> by reducing image size, improving build time, and following container best practices.</li>
+                        <li>Implemented <strong>unit and integration tests using Pytest</strong>, contributing to improved code quality and CI pipeline reliability.</li>
+                        <li>Developed <strong>Python automation scripts</strong> to manage <strong>Google Cloud Storage buckets</strong>, including lifecycle rules, access control, and automation of provisioning.</li>
+                        <li>Administered and operated <strong>Cloud Run services</strong>, including deployment, scaling configuration, monitoring, and troubleshooting.</li>
+                        <li>Managed <strong>GitLab CI runners on GCP</strong>, deployed on <strong>GKE</strong>, ensuring pipeline scalability, availability, and performance.</li>
+                        <li>Participated in the <strong>migration to Cloud SQL</strong>, including database provisioning, connectivity configuration, and application adaptation.</li>
+                        <li>Worked on <strong>CI/CD pipelines using GitLab CI</strong>, integrating build, test, and deployment stages for cloud-native applications.</li>
+                    </ul>
+                    <ul class="fr-only">
+                        <li>Optimisation des <strong>API PHP basées sur Sylius (Symfony + Doctrine)</strong>, avec amélioration des performances, des temps de réponse et de l'efficacité des requêtes en base de données.</li>
+                        <li>Optimisation des <strong>images Docker</strong> (réduction de la taille, amélioration des temps de build, respect des bonnes pratiques de conteneurisation).</li>
+                        <li>Mise en place de <strong>tests unitaires et d'intégration avec Pytest</strong>, contribuant à l'amélioration de la qualité du code et à la fiabilité des pipelines CI.</li>
+                        <li>Développement de <strong>scripts Python</strong> pour la <strong>gestion automatisée des buckets Google Cloud Storage</strong> (provisionnement, règles de cycle de vie, gestion des accès).</li>
+                        <li>Administration et exploitation des <strong>services Cloud Run</strong> (déploiement, configuration du scaling, supervision et résolution d'incidents).</li>
+                        <li>Gestion des <strong>runners GitLab CI sur GCP</strong>, déployés sur <strong>GKE</strong>, assurant la scalabilité et la disponibilité des pipelines CI/CD.</li>
+                        <li>Participation à la <strong>migration vers Cloud SQL</strong>, incluant le provisionnement des bases, la configuration des connexions et l'adaptation des applications.</li>
+                        <li>Contribution à la mise en place et à l'amélioration des <strong>pipelines CI/CD avec GitLab CI</strong>, intégrant les phases de build, tests et déploiement.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 class="en-only">Junior Developer Python | Junior DevOps</h3>
+                    <h3 class="fr-only">Junior Developer Python | DevOps Junior</h3>
+                    <div class="meta">
+                        <span class="company">Worldline</span> • 
+                        <span class="en-only">Lille, France • March 2020 - April 2023</span>
+                        <span class="fr-only">Lille, France • Mars 2020 - Avril 2023</span>
+                    </div>
+                    <ul class="en-only">
+                        <li>Developed and maintained client websites</li>
+                        <li>Implemented responsive designs from mockups</li>
+                        <li>Fixed bugs and performed code reviews</li>
+                    </ul>
+                    <ul class="fr-only">
+                        <li>Développement et maintenance de sites web clients</li>
+                        <li>Implémentation de designs responsive à partir de maquettes</li>
+                        <li>Correction de bugs et revues de code</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section class="section">
+                <h2 class="section-title en-only">Education</h2>
+                <h2 class="section-title fr-only">Formation</h2>
+
+                <div class="timeline-item">
+                    <h3 class="en-only">Master's Degree</h3>
+                    <h3 class="fr-only">Diplôme d'Ingénieur</h3>
+                    <div class="meta">
+                        <span class="company">ESIGELEC</span> • 
+                        <span class="en-only">2014 - 2019</span>
+                        <span class="fr-only">2014 - 2019</span>
+                    </div>
+                    <p class="en-only">Architecture and Network Security</p>
+                    <p class="fr-only">Architecture et Sécurité des Réseaux</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 class="en-only">Bachelor's Degree in Computer Science</h3>
+                    <h3 class="fr-only">Licence en Informatique</h3>
+                    <div class="meta">
+                        <span class="company">University of Lyon</span> • 
+                        <span class="en-only">2014 - 2017</span>
+                        <span class="fr-only">2014 - 2017</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="section">
+                <h2 class="section-title en-only">Skills</h2>
+                <h2 class="section-title fr-only">Compétences</h2>
+
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4 class="en-only">Frontend</h4>
+                        <h4 class="fr-only">Frontend</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Vue.js</span>
+                            <span class="skill-tag">PHP</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4 class="en-only">Backend</h4>
+                        <h4 class="fr-only">Backend</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Golang</span>
+                            <span class="skill-tag">REST APIs</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4 class="en-only">Database</h4>
+                        <h4 class="fr-only">Base de données</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Redis</span>
+                            <span class="skill-tag">MySQL</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4 class="en-only">DevOps & Tools</h4>
+                        <h4 class="fr-only">DevOps & Outils</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">GCP</span>
+                            <span class="skill-tag">CI/CD</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Mainframe</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Languages Section -->
+            <section class="section">
+                <h2 class="section-title en-only">Languages</h2>
+                <h2 class="section-title fr-only">Langues</h2>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <div class="skill-tags">
+                            <span class="skill-tag en-only">Chinese - Native</span>
+                            <span class="skill-tag fr-only">Chinois - Langue maternelle</span>
+                            <span class="skill-tag en-only">French - Fluent</span>
+                            <span class="skill-tag fr-only">Français - Courant</span>
+                            <span class="skill-tag en-only">English - Fluent</span>
+                            <span class="skill-tag fr-only">Anglais - Courant</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="en-only">&copy; 2026 ZHAO Yinjie. All rights reserved.</p>
+            <p class="fr-only">&copy; 2026 ZHAO Yinjie. Tous droits réservés.</p>
+        </footer>
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            // Update body data attribute
+            document.body.setAttribute('data-lang', lang);
+            
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Store preference
+            localStorage.setItem('preferredLanguage', lang);
+            
+            // Update HTML lang attribute for accessibility
+            document.documentElement.lang = lang;
+        }
+
+        // Load preferred language on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+                const btn = document.querySelector(`.lang-btn[onclick="setLanguage('${savedLang}')"]`);
+                if (btn) {
+                    btn.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
