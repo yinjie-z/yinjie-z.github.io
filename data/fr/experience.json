@@ -1,16 +1,31 @@
 [
   {
-    "title": "Ingénieur DevOps & Backend Senior",
+    "title": "Ingénieur DevSecOps Senior",
     "company": "BPCE",
     "city": "Paris, France",
     "startDate": "Mai 2024",
     "endDate": "Présent",
     "tasks": [
-      "Conception et exploitation d'infrastructures CI/CD sécurisées conformes aux standards bancaires, permettant des mises en production fréquentes.",
-      "Développement d'APIs d'automatisation en Python, réduisant les interventions manuelles sur Mainframe de plus de 400 incidents par an.",
-      "Déploiement de services web sur OpenShift, améliorant la disponibilité des services et l'autonomie des utilisateurs.",
-      "Mise en œuvre de l'automatisation Ansible pour la gestion des certificats Mainframe avec traçabilité complète d'audit.",
-      "Collaboration avec les équipes sécurité et infrastructure pour définir des choix d'architecture axés sur la scalabilité et la conformité."
+      {
+        "keyword": "Automatisation IAM Mainframe",
+        "description": "Architecture d'une API IAM en Python et d'un portail Self-Service pour l'automatisation du provisioning des profils RACF et de la réinitialisation de mots de passe ; réduction significative des tickets support et modernisation de la gestion des accès legacy."
+      },
+      {
+        "keyword": "Gouvernance & Outillage DevSecOps",
+        "description": "Négociation et pilotage du déploiement d'Ansible et XLDeploy dans des zones sécurisées restreintes. Alignement des équipes z/OS, Linux et DevOps pour établir un framework conforme aux normes bancaires pour les opérations de sécurité."
+      },
+      {
+        "keyword": "Orchestration CI/CD Hybride",
+        "description": "Conception d'une architecture Jenkins distribuée (slaves Windows Server) pour automatiser le cycle de vie des scripts PowerShell z/OS, garantissant le versioning et la traçabilité via JFrog Artifactory."
+      },
+      {
+        "keyword": "Industrialisation de la Sécurité",
+        "description": "Automatisation de la conversion et du formatage des certificats SSL/TLS pour l'ingestion dans DB2 et le durcissement (hardening) du Mainframe ; élimination de plus de 400 incidents manuels par an avec une traçabilité d'audit complète."
+      },
+      {
+        "keyword": "Déploiement Cloud-Native",
+        "description": "Déploiement et gestion de microservices de sécurité critiques sur OpenShift, utilisant des patterns Kubernetes pour améliorer la disponibilité des services et l'autonomie des développeurs dans un environnement réglementé."
+      }
     ]
   },
   {
@@ -20,11 +35,26 @@
     "startDate": "Avril 2023",
     "endDate": "Avril 2024",
     "tasks": [
-      "Optimisation des performances d'APIs PHP et réduction du temps de réponse via des améliorations SQL et système.",
-      "Réduction des temps de build Docker par l'optimisation des couches (layers) et des stratégies de cache CI.",
-      "Développement de scripts d'automatisation Python pour le provisionnement et la gestion du cycle de vie du stockage Cloud.",
-      "Gestion et mise à l'échelle de runners GitLab CI sur GKE, garantissant une haute disponibilité des pipelines.",
-      "Réalisation de migrations vers Cloud SQL et gestion de workflows CI/CD de niveau production."
+      {
+        "keyword": "Infrastructure Cloud (GCP/GKE)",
+        "description": "Gestion et auto-scaling des GitLab CI Runners sur GKE, garantissant une disponibilité de 99,9 % pour l'exécution des pipelines et l'optimisation des coûts via l'utilisation de nœuds préemptibles."
+      },
+      {
+        "keyword": "Optimisation CI/CD",
+        "description": "Réduction drastique des temps de build Docker et de la latence CI par l'implémentation de stratégies avancées de mise en cache de couches et de builds multi-étapes, accélérant le cycle 'code-to-production'."
+      },
+      {
+        "keyword": "Base de données & Performance",
+        "description": "Pilotage de la migration vers Google Cloud SQL et optimisation de requêtes SQL, entraînant une réduction mesurable des temps de réponse de l'API PHP lors des pics de trafic."
+      },
+      {
+        "keyword": "Automatisation du Stockage (IaC)",
+        "description": "Développement d'automatisations en Python pour le provisioning et la gestion du cycle de vie sur Google Cloud Storage, assurant la conformité des données et la réduction des coûts de stockage."
+      },
+      {
+        "keyword": "Fiabilité de la Production",
+        "description": "Maintenance des workflows et du monitoring en production, avec un focus sur les améliorations système pour stabiliser le backend de la plateforme e-commerce."
+      }
     ]
   },
   {
@@ -34,10 +64,26 @@
     "startDate": "Mars 2020",
     "endDate": "Avril 2023",
     "tasks": [
-      "Conception et maintenance de pipelines CI/CD avec GitLab CI pour des déploiements multi-environnements.",
-      "Administration des systèmes de monitoring via Zabbix et Grafana pour garantir la fiabilité de la production.",
-      "Contribution à l'automatisation applicative en Python et Golang.",
-      "Supervision de l'orchestration de conteneurs via Kubernetes et Helm en environnement de production."
+      {
+        "keyword": "Orchestration de Production",
+        "description": "Gestion et mise à l'échelle des charges de travail en production via Kubernetes (K8s) et Helm, garantissant la stabilité d'applications financières critiques et l'optimisation des ressources."
+      },
+      {
+        "keyword": "Industrialisation CI/CD",
+        "description": "Conception et maintenance de pipelines GitLab CI complexes pour des déploiements multi-environnements (Dev, QA, Prod), intégrant des tests automatisés et des barrières de sécurité (security gates)."
+      },
+      {
+        "keyword": "Observabilité & Monitoring",
+        "description": "Mise en place de tableaux de bord de supervision complets avec Zabbix et Grafana, améliorant la détection d'incidents et réduisant le temps moyen de rétablissement (MTTR)."
+      },
+      {
+        "keyword": "Automatisation Backend",
+        "description": "Développement d'outils internes et de fonctionnalités applicatives en Python et Golang pour automatiser les tâches opérationnelles répétitives et optimiser les performances système."
+      },
+      {
+        "keyword": "Conformité Financière",
+        "description": "Évolution dans des cadres réglementaires stricts, garantissant que chaque déploiement et modification d'infrastructure respecte les normes de sécurité bancaires."
+      }
     ]
   }
 ]

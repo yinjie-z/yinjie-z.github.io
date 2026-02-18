@@ -1,16 +1,31 @@
 [
   {
-    "title": "Senior DevOps & Backend Engineer",
+    "title": "Senior DevSecOps Engineer",
     "company": "BPCE",
     "city": "Paris, France",
     "startDate": "May 2024",
     "endDate": "Present",
     "tasks": [
-      "Designed and operated secure CI/CD infrastructure compliant with enterprise-level security standards, enabling frequent production releases.",
-      "Developed Python automation APIs to reduce manual mainframe operations by 400+ incidents per year.",
-      "Built and deployed web services on OpenShift, improving service availability and user autonomy.",
-      "Implemented Ansible automation for mainframe certificate management with full audit traceability.",
-      "Collaborated with security and infrastructure teams to define architecture decisions focused on scalability and compliance."
+      {
+        "keyword": "Mainframe IAM Automation",
+        "description": "Architected a Python-based IAM API and a Self-Service Frontend to automate RACF user profile provisioning and password resets; significantly reduced Service Desk tickets and modernized legacy access management."
+      },
+      {
+        "keyword": "DevSecOps Governance & Tooling",
+        "description": "Negotiated and led the deployment of Ansible and XLDeploy within restricted security perimeters. Aligned z/OS, Linux, and DevOps teams to establish a compliant framework for automated security operations."
+      },
+      {
+        "keyword": "Hybrid CI/CD Orchestration",
+        "description": "Engineered a distributed Jenkins architecture utilizing Windows Server nodes to automate the lifecycle of z/OS PowerShell scripts, ensuring versioned delivery and traceability via JFrog Artifactory."
+      },
+      {
+        "keyword": "Security Industrialization",
+        "description": "Automated the end-to-end conversion and formatting of SSL/TLS certificates for DB2 ingestion and mainframe hardening, eliminating 400+ annual manual incidents while ensuring full audit traceability."
+      },
+      {
+        "keyword": "Cloud-Native Delivery",
+        "description": "Deployed and managed critical security microservices on OpenShift, leveraging Kubernetes-native patterns to improve service availability and developer autonomy within a regulated banking environment."
+      }
     ]
   },
   {
@@ -20,11 +35,26 @@
     "startDate": "Apr. 2023",
     "endDate": "Apr. 2024",
     "tasks": [
-      "Optimized PHP API performance and reduced response time through SQL and system-level enhancements.",
-      "Reduced Docker image build times by optimizing image layers and CI caching strategies.",
-      "Built automation scripts for cloud storage provisioning and lifecycle rules using Python.",
-      "Managed and scaled GitLab CI runners on GKE, ensuring highly available pipeline executions.",
-      "Implemented migrations to Cloud SQL and managed production-grade CI/CD workflows."
+      {
+        "keyword": "Cloud Infrastructure (GCP/GKE)",
+        "description": "Managed and auto-scaled GitLab CI Runners on GKE, ensuring 99.9% availability for pipeline executions and optimizing resource consumption via preemptible nodes."
+      },
+      {
+        "keyword": "CI/CD Optimization",
+        "description": "Drastically reduced Docker build times and CI latency by implementing advanced layer caching and multi-stage build strategies, accelerating the \"code-to-production\" cycle."
+      },
+      {
+        "keyword": "Database & Performance",
+        "description": "Led the migration to Google Cloud SQL and performed SQL query optimization, resulting in a measurable reduction in PHP API response times during high-traffic periods."
+      },
+      {
+        "keyword": "Storage Automation (IaC)",
+        "description": "Developed Python-based automation for Google Cloud Storage provisioning and lifecycle management, ensuring data compliance and reducing storage costs."
+      },
+      {
+        "keyword": "Production Reliability",
+        "description": "Managed production-grade workflows and monitoring, focusing on system-level enhancements to stabilize the e-commerce platform's backend."
+      }
     ]
   },
   {
@@ -34,10 +64,26 @@
     "startDate": "Mar. 2020",
     "endDate": "Apr. 2023",
     "tasks": [
-      "Designed and maintained CI/CD pipelines with GitLab CI across multi-environment deployments.",
-      "Administered monitoring systems using Zabbix and Grafana for production reliability.",
-      "Contributed to application-level automation in Python and Golang.",
-      "Oversaw container orchestration via Kubernetes and Helm in a production environment."
+      {
+        "keyword": "Production Orchestration",
+        "description": "Managed and scaled production workloads using Kubernetes (K8s) and Helm, ensuring the stability of critical financial applications and optimizing resource allocation."
+      },
+      {
+        "keyword": "CI/CD Industrialization",
+        "description": "Designed and maintained complex GitLab CI pipelines for multi-environment deployments (Dev, QA, Prod), implementing automated testing and security gates."
+      },
+      {
+        "keyword": "Observability & Monitoring",
+        "description": "Built and configured comprehensive monitoring dashboards using Zabbix and Grafana, improving incident detection and reducing Mean Time to Repair (MTTR)."
+      },
+      {
+        "keyword": "Backend Automation",
+        "description": "Developed internal tools and application features using Python and Golang to automate repetitive operational tasks and improve system performance."
+      },
+      {
+        "keyword": "Financial Compliance",
+        "description": "Operated within strict regulatory frameworks, ensuring all deployments and infrastructure changes adhered to banking-grade security standards."
+      }
     ]
   }
 ]

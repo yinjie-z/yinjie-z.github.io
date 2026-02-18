@@ -12,7 +12,10 @@ interface Experience {
   city: string
   startDate: string
   endDate: string
-  tasks: string[]
+  tasks: {
+    keyword: string
+    description: string
+  }[]
 }
 
 const localJson = computed<Experience[]>(() => {
@@ -93,7 +96,7 @@ const localJson = computed<Experience[]>(() => {
                 :key="index"
                 class="relative pl-6 text-slate-200 leading-relaxed text-sm before:content-['•'] before:absolute before:left-0 before:text-blue-500/60"
               >
-                {{ value }}
+                <strong>{{ value.keyword }}</strong> : {{ value.description }}
               </li>
             </ul>
           </div>
